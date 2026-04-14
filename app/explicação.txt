@@ -1,0 +1,11 @@
+Schemas: Define as Classes ou seja o formato do json
+
+Services: Cria as funções que posteriormente iram retornar um json no post 
+
+Routes: Cria as rotas ou seja os posts e gets 
+
+Get: Usado para consultar dados 
+
+Post: Usado para enviar dados
+
+Main: inicia e "roda" a API

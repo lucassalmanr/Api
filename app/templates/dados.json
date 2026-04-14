@@ -1,0 +1,71 @@
+[
+    {
+        "id": 1,
+        "group": {
+            "code": "A",
+            "name": "Atividades Minerárias",
+            "reasoning": "Expansão de lavra a céu aberto para extração de minério de ferro."
+        },
+        "activity": {
+            "code": "A-02-03-8",
+            "description": "Lavra a céu aberto - Minério de ferro",
+            "size_ranges": [
+                { "size_category": "L", "min_value": "1500000.00", "max_value": null },
+                { "size_category": "M", "min_value": "300000.00", "max_value": "1500000.00" },
+                { "size_category": "S", "min_value": null, "max_value": "300000.00" }
+            ]
+        },
+        "modalidade": {
+            "modality_name": "Licença Ambiental Concomitante 2",
+            "modality_acronym": "LAC2"
+        },
+        "porte": {
+            "result_class": 4
+        }
+    },
+    {
+        "id": 2,
+        "group": {
+            "code": "B",
+            "name": "Atividades Industriais",
+            "reasoning": "Instalação de indústria metalúrgica de médio porte."
+        },
+        "activity": {
+            "code": "B-01-01-1",
+            "description": "Produção de ligas metálicas",
+            "size_ranges": [
+                { "size_category": "L", "min_value": "500000.00", "max_value": null },
+                { "size_category": "M", "min_value": "100000.00", "max_value": "500000.00" }
+            ]
+        },
+        "modalidade": {
+            "modality_name": "Licença Prévia e de Instalação",
+            "modality_acronym": "LPI"
+        },
+        "porte": {
+            "result_class": 3
+        }
+    },
+    {
+        "id": 3,
+        "group": {
+            "code": "C",
+            "name": "Infraestrutura",
+            "reasoning": "Construção de rodovia estadual com pista dupla."
+        },
+        "activity": {
+            "code": "C-04-02-5",
+            "description": "Obras rodoviárias",
+            "size_ranges": [
+                { "size_category": "L", "min_value": "50.00", "max_value": null }
+            ]
+        },
+        "modalidade": {
+            "modality_name": "Licença Ambiental Simplificada",
+            "modality_acronym": "LAS"
+        },
+        "porte": {
+            "result_class": 2
+        }
+    }
+]
