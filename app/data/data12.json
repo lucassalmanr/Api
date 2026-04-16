@@ -1,0 +1,62 @@
+{
+    "group": {
+        "id": 1,
+        "code": "A",
+        "name": "Atividades Minerárias",
+        "reasoning": "O empreendimento é uma expansão de lavra a céu aberto para extração de minério de ferro, cuja atividade-fim é claramente minerária, enquadrando-se na Listagem Macro de Atividades Minerárias."
+    },
+    "activity": {
+        "id": 4,
+        "subgroup_id": 2,
+        "code": "A-02-03-8",
+        "description": "Lavra a céu aberto - Minério de ferro",
+        "ppd_air": "M",
+        "ppd_water": "M",
+        "ppd_soil": "L",
+        "ppd_general": "M",
+        "size_ranges": [
+            {
+                "id": 12,
+                "activity_id": 4,
+                "parameter_name": "Produção Bruta",
+                "measurement_unit": "t/ano",
+                "size_category": "L",
+                "min_value": "1500000.00",
+                "max_value": null
+            },
+            {
+                "id": 11,
+                "activity_id": 4,
+                "parameter_name": "Produção Bruta",
+                "measurement_unit": "t/ano",
+                "size_category": "M",
+                "min_value": "300000.00",
+                "max_value": "1500000.00"
+            },
+            {
+                "id": 10,
+                "activity_id": 4,
+                "parameter_name": "Produção Bruta",
+                "measurement_unit": "t/ano",
+                "size_category": "S",
+                "min_value": null,
+                "max_value": "300000.00"
+            }
+        ],
+        "reasoning": "Empreendimento de expansão de lavra a céu aberto especificamente para extração de minério de ferro, compatível diretamente com a tipologia de lavra de ferro em superfície."
+    },
+    "criterios": null,
+    "porte": {
+        "ppd_category": "M",
+        "size_category": "L",
+        "result_class": 4
+    },
+    "modalidade": {
+        "class_id": 4,
+        "locational_weight": 1,
+        "modality_id": 4,
+        "modality_acronym": "LAC2",
+        "modality_name": "Licença Ambiental Concomitante 2",
+        "modality_description": "Análise em uma única fase das etapas de LP e LI do empreendimento, com análise posterior da LO; ou análise da LP com posterior análise concomitante das etapas de LI e LO"
+    }
+}

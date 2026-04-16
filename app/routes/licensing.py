@@ -9,6 +9,7 @@ from typing import Annotated, Optional
 import json
 
 
+
 router = APIRouter(prefix="/api/v1/licenciamento", tags=["Licenciamento"])
 service = LicensingService()
 client = LicensingClient()
@@ -33,6 +34,7 @@ async def criar_empreendimento(payload: DevelopmentCreateRequest):
         )
         dados2 = dados.get('data', {})
         ultimo_id = dados2.get('id')
+        
         return {
             "name": payload.name,
             "description": payload.description,
@@ -90,23 +92,24 @@ async def criar_empreendimento(payload: DevelopmentCreateRequest):
             detail=f"Erro interno: {str(e)}"
         )        
 
-@router.post(f"/api/licensing/ai/inputs/{id}")
+@router.post(f"/forms")
 async def forms(
     development_id: Annotated[int, Form()],
     user_input: Annotated[str, Form()],
-    document: Annotated[Optional[UploadFile], File()] = None):
-            print(f"ID 2: {id}")
-            return {
-            "id": development_id,
-            "input": user_input,
-            "file_name": document.filename #obrigatorio / Testa com o docs
-            }
+    document: Annotated[UploadFile, File()],
+    e_ai: Annotated[bool, Form()]
+    
+    ):
+            return await client.receber_dados(development_id, document, user_input, e_ai)
+
+
+
 
     
 @router.post("/api/licensing/ai/classify/full")
 async def Classificacao(payload: Classification):
     try:
-        dados_classificados = await client.receber_dados(payload.development_id)
+        dados_classificados = await client.mandar_dados(payload.development_id)
         print(json.dumps(dados_classificados, indent=4, ensure_ascii=False))
         data = dados_classificados.get('data', {})
         classificacao = { "group": data.get('group'),
