@@ -1,3 +1,4 @@
+#apenas para teste
 from app.schemas.licensing import EmpreendimentoRequest
 
 class LicensingService:
@@ -5,7 +6,7 @@ class LicensingService:
     def __init__(self):
         self.ultimo_id = 0
 
-
+    # função que processa o empreendimento para o teste
     def processar_empreendimento(self, payload: EmpreendimentoRequest) -> dict:
         return {
             "id": self.definir_ultimoid(),

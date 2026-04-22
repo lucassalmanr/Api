@@ -14,17 +14,19 @@ router = APIRouter(prefix="/api/v1/licenciamento", tags=["Licenciamento"])
 service = LicensingService()
 client = LicensingClient()
 
-
+# Verifica se a API está funcionando corretamente
 @router.get("/health")
 def health():
     return {"status": "ok"}
 
-
+# apenas para teste local
 @router.post("/empreendimentos-teste", response_model=EmpreendimentoResponse)
 def criar_empreendimento_teste(payload: EmpreendimentoRequest):
     return service.processar_empreendimento(payload)
 
-# tirei o response_model e rodou, isso ta certo? 
+
+
+# Recebe as informações básicas e cadastra um novo empreendimento na API do AKASHA (`/api/licensing/developments`).
 @router.post("/criar-empreendimento")
 async def criar_empreendimento(payload: DevelopmentCreateRequest):
     try:
@@ -40,6 +42,7 @@ async def criar_empreendimento(payload: DevelopmentCreateRequest):
             "description": payload.description,
             "id": ultimo_id
         }
+    # tratamento de erros
     except httpx.HTTPStatusError as e:
         status_code = e.response.status_code
 
@@ -92,38 +95,35 @@ async def criar_empreendimento(payload: DevelopmentCreateRequest):
             detail=f"Erro interno: {str(e)}"
         )        
 
+
+# Recebe o arquivo e as informações do formulário e envia para a API oficial do AKASHA (`/api/licensing/forms`).
 @router.post(f"/forms")
 async def forms(
-    development_id: Annotated[int, Form()],
+    development_id: Annotated[str, Form()],
     user_input: Annotated[str, Form()],
     document: Annotated[UploadFile, File()],
-    e_ai: Annotated[bool, Form()]
-    
+    e_ai: Annotated[bool, Form()]   
     ):
-            return await client.receber_dados(development_id, document, user_input, e_ai)
+            return await client.receber_dados(development_id, user_input, document, e_ai)
 
 
-
-
-    
+# Recebe o ID do empreendimento e envia para a API oficial do AKASHA (`/api/licensing/ai/classify/full`).
 @router.post("/api/licensing/ai/classify/full")
 async def Classificacao(payload: Classification):
     try:
         dados_classificados = await client.mandar_dados(payload.development_id)
-        print(json.dumps(dados_classificados, indent=4, ensure_ascii=False))
         data = dados_classificados.get('data', {})
         classificacao = { "group": data.get('group'),
             "activity": data.get('activity'),
             "criterios": data.get('criteria'),
             "porte": data.get('classification') or "M", 
             "modalidade": data.get('modality')}
+        # cria um arquivo .json com as infomações adquiridas o nome é relativo ao id
         with open(f"C:/Users/lucas.resende/Downloads/primeira API/app/data/data{payload.development_id}.json", "w", encoding="utf-8") as arquivo:
-            json.dump(classificacao, arquivo, ensure_ascii=False, indent=4)
+            json.dump(classificacao, arquivo, ensure_ascii=False, indent=4) 
         return classificacao
 
-
-
-    
+    # tratamento de erros
     except httpx.HTTPStatusError as e:
         status_code = e.response.status_code
 

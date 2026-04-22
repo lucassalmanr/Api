@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Criar Empreendimento</title>
+    
     <style>
         :root {
             --primary: #4F46E5;
@@ -92,7 +93,7 @@
 <body>
     <div class="container">
         <h1>Novo Empreendimento</h1>
-        <form action="" onsubmit="event.preventDefault();">
+        <form action="" >
             <div class="form-group">
                 <label for="name">Nome do Empreendimento</label>
                 <input type="text" id="name" placeholder="Ex: Residencial Flores">
@@ -104,6 +105,28 @@
             <button type="button" class="btn-submit" onclick="criarNovoEmpreendimento()">Criar Empreendimento</button>
         </form>
     </div>
-    <script src="script.js"></script>
+    <div style="margin-top: 1vh;"></div>
+    <div class="container">
+        <h1>Adicionar Documento</h1>
+        <form action="teste3.html" onsubmit="event.preventDefault();">
+            <div class="form-group">
+            </div>
+            <button type="button" class="btn-submit" onclick="enviarFormulario()">Enviar</button>
+        </form>
+    </div>
+    <div style="margin-top: 1vh;"></div>
+    <div class="container">
+        <h1>Criar Empreendimento</h1>
+        
+        <div class="form-group">
+            <button type="button" class="btn-submit" onclick="getclassificacao(event)">
+                Criar Empreendimento
+            </button>
+        </div>
+
+        <div id="resultado" style="margin-top: 20px; word-wrap: break-word;"></div>
+    </div>
+
+    <script src="{{ url_for('static', path='js/script.js') }}"></script>
 </body>
 </html>

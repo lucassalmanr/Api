@@ -1,0 +1,62 @@
+{
+    "group": {
+        "id": 8,
+        "code": "H",
+        "name": "Outras Atividades",
+        "reasoning": "A descrição fornecida (“davi.santos”) não caracteriza nenhum tipo de empreendimento ou atividade econômica, impossibilitando o enquadramento em A–G; por exclusão, classifica-se em H – Outras Atividades."
+    },
+    "activity": {
+        "id": 245,
+        "subgroup_id": 43,
+        "code": "H-01-01-1",
+        "description": "Atividades e empreendimentos não listados ou não enquadrados em outros códigos, com supressão de vegetação primária ou secundária nativa pertencente ao bioma Mata Atlântica, em estágios médio e/ou avançado de regeneração, sujeita a EIA/Rima nos termos da Lei Federal nº 11.428, de 22 de dezembro de 2006, exceto árvores isoladas.",
+        "ppd_air": "S",
+        "ppd_water": "M",
+        "ppd_soil": "L",
+        "ppd_general": "M",
+        "size_ranges": [
+            {
+                "id": 692,
+                "activity_id": 245,
+                "parameter_name": "Área de supressão de vegetação do bioma",
+                "measurement_unit": "ha",
+                "size_category": "L",
+                "min_value": "5.00",
+                "max_value": null
+            },
+            {
+                "id": 691,
+                "activity_id": 245,
+                "parameter_name": "Área de supressão de vegetação do bioma",
+                "measurement_unit": "ha",
+                "size_category": "M",
+                "min_value": "3.00",
+                "max_value": "5.00"
+            },
+            {
+                "id": 690,
+                "activity_id": 245,
+                "parameter_name": "Área de supressão de vegetação do bioma",
+                "measurement_unit": "ha",
+                "size_category": "S",
+                "min_value": null,
+                "max_value": "3.00"
+            }
+        ],
+        "reasoning": "Como só há uma atividade disponível no subgrupo e o empreendimento é indicado como de supressão de vegetação da Mata Atlântica sujeita a EIA/Rima, o enquadramento recai necessariamente neste código residual."
+    },
+    "criterios": null,
+    "porte": {
+        "ppd_category": "M",
+        "size_category": "L",
+        "result_class": 4
+    },
+    "modalidade": {
+        "class_id": 4,
+        "locational_weight": 1,
+        "modality_id": 4,
+        "modality_acronym": "LAC2",
+        "modality_name": "Licença Ambiental Concomitante 2",
+        "modality_description": "Análise em uma única fase das etapas de LP e LI do empreendimento, com análise posterior da LO; ou análise da LP com posterior análise concomitante das etapas de LI e LO"
+    }
+}
